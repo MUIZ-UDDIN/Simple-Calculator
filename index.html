@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>Simple Calculator</h1>
+      </div>
+      <div class="cal">
+        <form action="">
+          <div class="main">
+            <input id="Screen" class="Display" type="text" value="" />
+            <input style="height: 30px" type="button" value="c" />
+          </div>
+
+          <div class="row1">
+            <input type="button" value="7" />
+            <input type="button" value="8" />
+            <input type="button" value="9" />
+            <input type="button" value="+" />
+          </div>
+          <div class="row2">
+            <input type="button" value="4" />
+            <input type="button" value="5" />
+            <input type="button" value="6" />
+            <input type="button" value="-" />
+          </div>
+          <div class="row3">
+            <input type="button" value="1" />
+            <input type="button" value="2" />
+            <input type="button" value="3" />
+            <input type="button" value="%" />
+          </div>
+          <div class="row4">
+            <input type="button" value="0" />
+            <input type="button" value="00" />
+            <input type="button" value="=" />
+            <input type="button" value="x" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      let screen = document.getElementById("Screen");
+      buttons = document.querySelectorAll("input");
+      let screenValue = "";
+      for (item of buttons) {
+        item.addEventListener("click", (e) => {
+          buttonText = e.target.value;
+          if (buttonText == "x") {
+            buttonText = "*";
+            screenValue += buttonText;
+            screen.value = screenValue;
+          } else if (buttonText == "c") {
+            screenValue = "";
+            screen.value = screenValue;
+          } else if (buttonText == "=") {
+            screen.value = eval(screenValue);
+          } else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
